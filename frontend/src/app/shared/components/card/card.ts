@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { MetImage } from '../../../core/models/image-gallery';
 
 
@@ -10,4 +10,9 @@ import { MetImage } from '../../../core/models/image-gallery';
 })
 export class Card {
   image = input.required<MetImage>();
+  flipState = signal(false);
+
+  flipCard = () => {
+    this.flipState.update(state => !state);
+  }
 }

@@ -143,8 +143,4 @@ export class App {
     cardData.sort(() => Math.random() - 0.5);
     return cardData;
   }
-
-  // cardGenerator = () => {
-
-  // };
 }
