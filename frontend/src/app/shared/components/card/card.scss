@@ -1,31 +1,44 @@
-
 .card {
+  background: transparent;
   position: relative;
+  border: none;
   aspect-ratio: 1 / 1;
   width: 100%;
   height: 100%;
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
-  border-radius: 0.5rem;
+  perspective: 800px;
 
   &:hover figcaption,
   &:focus-visible figcaption {
     opacity: 1;
   }
 
-  &.flipped .back {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  &.flipped .inner {
+    transition: transform 2s ease;
+    transform: rotateY(180deg);
   }
 }
 
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 2s ease;
+}
+
+
 figure {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
   height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
 }
 
 .face {
@@ -42,8 +55,6 @@ figcaption {
   padding: 0.5rem;
   background: rgba(0, 0, 0, 0.65);
   color: #fff;
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .back {
@@ -55,7 +66,5 @@ figcaption {
   color: #fff;
   font-size: 3rem;
   font-weight: bold;
+  backface-visibility: hidden;
 }
-
-
-

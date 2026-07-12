@@ -1,8 +1,10 @@
-<button class="card" [class.flipped]="flipState()">
-  <figure>
-    <img class="face" [src]="image().imgSrc" [alt]="image().title" />
-    <figcaption>{{ image().title }}, {{ image().artist }}, {{ image().year }}</figcaption>
-  </figure>
+<button class="card" (click)="flipCard()" [class.flipped]="flipState()">
+  <div class="inner">
+    <figure>
+      <img class="face" [src]="image().imgSrc" [alt]="image().title" />
+      <figcaption>{{ image().title }}, {{ image().artist }}, {{ image().year }}</figcaption>
+    </figure>
 
-  <div class="back" aria-hidden="true" (click)="flipCard();">?</div>
+    <div class="back" aria-hidden="true">?</div>
+  </div>
 </button>
