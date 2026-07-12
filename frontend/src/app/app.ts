@@ -1,21 +1,23 @@
 import { OnInit, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { MetImage } from './core/models/image-gallery';
+import { Card } from './shared/components/card/card';
+
 
 @Component({
   selector: 'app-root',
-  //imports: [RouterOutlet],
+  imports: [Card],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('frontend');
 
-  // Grab a couple of things
   public section = document.querySelector("section");
   protected playerLives: number = 6;
-  protected baseMetImagePath: string = '../assets/images/';
 
+  protected baseMetImagePath: string = './images/';
   protected images: MetImage[] = [
     {
       imgSrc: this.baseMetImagePath + 'met-1.jpg',
@@ -118,6 +120,19 @@ export class App {
   ngOnInit(): void {
     let playerLivesCount = document.querySelector("span");
     if (playerLivesCount) playerLivesCount.textContent = this.playerLives.toString();
+
+    this.randomize();
   }
 
+  getData = () => this.images;
+
+  randomize = () => {
+    const cardData = this.getData();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+  }
+
+  // cardGenerator = () => {
+
+  // };
 }
