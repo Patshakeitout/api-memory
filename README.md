@@ -42,13 +42,6 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Create a `.env` file (see `.env.example`) with your own Spotify credentials:
-
-```
-SPOTIFY_CLIENT_ID=...
-SPOTIFY_CLIENT_SECRET=...
-```
-
 Start the backend:
 
 ```bash
