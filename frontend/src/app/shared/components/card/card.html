@@ -1,16 +1,12 @@
 <button class="card">
-  <figure>
+  <!-- <figure>
     <img class="face">
 
     <figcaption></figcaption>
-  </figure>
+  </figure> -->
 
-  <figure class="back" aria-hidden>
-    <img class="face" [src]="image().imgSrc" [alt]="image().title">
-    <figcaption>
-      {{ image().title }}
-      {{ image().artist }}
-      {{ image().year }}
-    </figcaption>
+  <figure aria-hidden>
+    <img class="back-image" [src]="image().imgSrc" [alt]="image().title" />
+    <figcaption>{{ image().title }}, {{ image().artist }}, {{ image().year }}</figcaption>
   </figure>
 </button>

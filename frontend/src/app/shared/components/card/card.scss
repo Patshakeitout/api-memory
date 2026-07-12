@@ -1,0 +1,23 @@
+
+.card {
+  aspect-ratio: 1 / 1;
+  padding: 0.5rem;
+  padding-bottom: 0;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // flex: 1;
+  // flex-grow: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.back-image {
+  width: 100%;
+  height: 85%;
+  object-fit: contain;
+}
+
