@@ -5,8 +5,6 @@
   aspect-ratio: 1 / 1;
   width: 100%;
   height: 100%;
-  min-width: 0;
-  min-height: 0;
   perspective: 800px;
 
   &:hover figcaption,
@@ -17,7 +15,6 @@
   &.flipped .inner {
     transition: transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: rotateY(180deg);
-    box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
   }
 }
 
@@ -27,18 +24,12 @@
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: rgba(0,0,0,0.2) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
-
 
 figure {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-  height: 100%;
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }
@@ -54,9 +45,9 @@ figcaption {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
+  padding: 0.2rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1ebeb;
   opacity: 0;
 }
 
@@ -65,9 +56,20 @@ figcaption {
   inset: 0;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #acb6e5, #74ebd5);
-  color: #fff;
-  font-size: 3rem;
-  font-weight: bold;
   backface-visibility: hidden;
+
+  --s: 35px; /* control the size*/
+  --c1: #339194;
+  --c2: #f6d86b;
+  --g1:conic-gradient(from  45deg at 62.5% 12.5%,#0000 75%,var(--c1) 0);
+  --g2:conic-gradient(from -45deg at 12.5% 12.5%,#0000 75%,var(--c1) 0);
+  --g3:conic-gradient(from 225deg at 87.5% 87.5%,#0000 75%,var(--c2) 0);
+  --g4:conic-gradient(from 135deg at 87.5% 37.5%,#0000 75%,var(--c2) 0);
+  background:
+    var(--g4),var(--g4) var(--s) var(--s),
+    var(--g3),var(--g3) var(--s) var(--s),
+    var(--g2),var(--g2) var(--s) var(--s),
+    var(--g1),var(--g1) var(--s) var(--s),
+    repeating-linear-gradient(135deg,var(--c2) 0 12.5%,var(--c1) 0 25%);
+  background-size: calc(2*var(--s)) calc(2*var(--s));
 }
