@@ -125,8 +125,8 @@ export class Metropolitan implements OnInit {
   ];
 
   ngOnInit(): void {
-    let playerLivesCount = document.querySelector("span");
-    if (playerLivesCount) playerLivesCount.textContent = this.playerLives.toString();
+    // let playerLivesCount = document.querySelector("span");
+    // if (playerLivesCount) playerLivesCount.textContent = this.playerLives.toString();
 
     this.randomize();
   }
