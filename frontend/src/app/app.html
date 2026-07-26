@@ -1,7 +1,5 @@
-<h1>Lives: <span class="playerLivesCount"></span></h1>
+<app-left-sidebar />
 
-<section>
-  @for (img of images; track img.imgSrc) {
-    <app-card [image]="img"/>
-  }
-</section>
+<app-main />
+
+<router-outlet />
