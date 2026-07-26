@@ -2,7 +2,7 @@
 
 @use '@fontsource-variable/outfit';
 
-$font-ui: 'Outfit variable', 'system-ui', 'sans-serif';
+$font-ui: 'Outfit Variable', system-ui, sans-serif;
 
 * {
   margin: 0;
@@ -12,8 +12,5 @@ $font-ui: 'Outfit variable', 'system-ui', 'sans-serif';
 }
 
 body {
-  padding: 0;
-  background: #74ebd5; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #acb6e5, #74ebd5); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #acb6e5, #74ebd5);
 }

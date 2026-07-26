@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,6 +8,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './left-sidebar.scss',
 })
 export class LeftSidebar {
+  isLeftSidebarCollapsed = input.required<boolean>();
+
   items = [
     {
       routeLink: 'dashboard',

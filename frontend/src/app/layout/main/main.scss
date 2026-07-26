@@ -1,20 +1,10 @@
-.body {
-  width: calc(100% - 5rem);
-  margin-left: 5rem;
-  z-index: 0;
-  position: relative;
-  top: 0;
-  transition: all 0.5s ease;
-  background: #f4f7fa;
-  padding: 3rem;
-}
-
-.body-trimmed {
+:host {
+  display: block;
   width: calc(100% - 16.5625rem);
   margin-left: 16.5625rem;
+  transition: width 0.5s ease, margin-left 0.5s ease;
 }
 
-.body-md-screen {
-  width: calc(100% - 5rem);
-  margin-left: 5rem;
+main {
+  padding: 3rem;
 }
