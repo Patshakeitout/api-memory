@@ -4,19 +4,32 @@ $text-light: #f3f3f3;
 $dark: #000;
 $icon-size: 20px;
 $logo-width: 2.6rem;
+$sidebar-width: 16.5625rem;
+$sidebar-width-collapsed: 5rem;
+$transition-duration: 0.5s;
+
+@keyframes sidenav-reveal {
+  from {
+    opacity: 0;
+  }
+}
 
 .sidenav {
   background: $sidebar-bg;
-  transition: all 0.5s ease;
+  transition: width $transition-duration ease;
   position: fixed;
   z-index: 1;
   top: 0;
-  width: 16.5625rem;
+  width: $sidebar-width;
   height: 100vh;
   box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
 
   &--collapsed {
-    width: 5rem;
+    width: $sidebar-width-collapsed;
+
+    .sidenav__item {
+      width: $logo-width;
+    }
   }
 
   &__header {
@@ -43,6 +56,12 @@ $logo-width: 2.6rem;
     font-size: $icon-size;
     font-weight: 700;
     color: $white;
+    white-space: nowrap;
+  }
+
+  &__brand,
+  &__close {
+    animation: sidenav-reveal 0.2s ease $transition-duration both;
   }
 
   &__close {
@@ -62,23 +81,23 @@ $logo-width: 2.6rem;
     padding: 0.938rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     height: calc(100% - 3.65rem);
   }
 
   &__item {
     width: 100%;
     margin-bottom: 0.625rem;
+    transition: width $transition-duration ease;
   }
 
   &__link {
     display: flex;
     align-items: center;
-    height: 3rem;
+    height: 2.6rem;
     color: $text-light;
     text-decoration: none;
     border-radius: 0.625rem;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover,
     &--active {

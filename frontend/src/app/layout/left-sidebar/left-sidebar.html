@@ -1,15 +1,14 @@
-<nav
-  class="sidenav"
-  /* [nClass] = "is" */
->
+<nav class="sidenav" [ngClass]="isLeftSidebarCollapsed() ? 'sidenav--collapsed' : ''">
   <header class="sidenav__header">
-    <button class="sidenav__logo" aria-label="Menü umschalten">
+    <button class="sidenav__logo" (click)="toggleCollapse()" aria-label="toggle menu">
       <i class="fal fa-bars" aria-hidden="true"></i>
     </button>
-    <span class="sidenav__brand">API-Memory</span>
-    <button class="sidenav__close" aria-label="Menü schließen">
-      <i class="fal fa-times" aria-hidden="true"></i>
-    </button>
+    @if (!isLeftSidebarCollapsed()) {
+      <span class="sidenav__brand">API-Memory</span>
+      <button class="sidenav__close" (click)="closeSideNav()" aria-label="close menu">
+        <i class="fal fa-times" aria-hidden="true"></i>
+      </button>
+    }
   </header>
 
   <ul class="sidenav__nav">
@@ -22,7 +21,9 @@
           [routerLinkActiveOptions]="{ exact: true }"
         >
           <i class="sidenav__icon" [class]="item.icon" aria-hidden="true"></i>
-          <span class="sidenav__text">{{ item.label }}</span>
+          @if (!isLeftSidebarCollapsed()) {
+            <span class="sidenav__text">{{ item.label }}</span>
+          }
         </a>
       </li>
     }

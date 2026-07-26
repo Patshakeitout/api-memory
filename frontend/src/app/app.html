@@ -1,3 +1,4 @@
-<app-left-sidebar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()" />
+<app-left-sidebar [isLeftSidebarCollapsed]="isLeftSidebarCollapsed()"
+ (changeIsLeftSidebarCollapsed)="changeIsLeftSidebarCollapsed($event)" />
 
 <app-main />

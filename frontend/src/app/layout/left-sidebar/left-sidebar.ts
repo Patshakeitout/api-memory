@@ -1,14 +1,16 @@
-import { Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-left-sidebar',
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './left-sidebar.html',
   styleUrl: './left-sidebar.scss',
 })
 export class LeftSidebar {
   isLeftSidebarCollapsed = input.required<boolean>();
+  changeIsLeftSidebarCollapsed = output<boolean>();
 
   items = [
     {
@@ -32,4 +34,12 @@ export class LeftSidebar {
       label: 'Poké'
     }
   ]
+
+  toggleCollapse(): void {
+    this.changeIsLeftSidebarCollapsed.emit(!this.isLeftSidebarCollapsed());
+  }
+
+  closeSideNav(): void {
+    this.changeIsLeftSidebarCollapsed.emit(true);
+  }
 }
