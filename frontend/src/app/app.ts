@@ -2,6 +2,8 @@ import { Component, HostListener, signal } from '@angular/core';
 import { LeftSidebar } from './layout/left-sidebar/left-sidebar';
 import { Main } from './layout/main/main';
 
+const NARROW_BREAKPOINT = 768;
+
 @Component({
   selector: 'app-root',
   imports: [LeftSidebar, Main],
@@ -9,19 +11,31 @@ import { Main } from './layout/main/main';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('frontend');
   isLeftSidebarCollapsed = signal<boolean>(false);
-  screenWidth = signal<number>(window.innerWidth);
+  private wasNarrow = this.isNarrow();
 
+  constructor() {
+    this.isLeftSidebarCollapsed.set(this.wasNarrow);
+  }
+
+  /** Collapses when the viewport crosses below the breakpoint; widening never overrides a manual choice. */
   @HostListener('window:resize')
-  onResize() {
-    this.screenWidth.set(window.innerWidth);
-    if (this.screenWidth() < 768) {
+  onResize(): void {
+    const isNarrow = this.isNarrow();
+    if (isNarrow === this.wasNarrow) {
+      return;
+    }
+    this.wasNarrow = isNarrow;
+    if (isNarrow) {
       this.isLeftSidebarCollapsed.set(true);
     }
   }
 
   changeIsLeftSidebarCollapsed(isLeftSidebarCollapsed: boolean): void {
     this.isLeftSidebarCollapsed.set(isLeftSidebarCollapsed);
+  }
+
+  private isNarrow(): boolean {
+    return window.innerWidth <= NARROW_BREAKPOINT;
   }
 }

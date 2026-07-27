@@ -60,7 +60,8 @@ $transition-duration: 0.5s;
   }
 
   &__brand,
-  &__close {
+  &__close,
+  &__text {
     animation: sidenav-reveal 0.2s ease $transition-duration both;
   }
 

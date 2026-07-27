@@ -1,8 +1,13 @@
 :host {
   display: block;
+  width: calc(100% - 5rem);
+  margin-left: 5rem;
+  transition: width 0.5s ease, margin-left 0.5s ease;
+}
+
+:host(.body-trimmed) {
   width: calc(100% - 16.5625rem);
   margin-left: 16.5625rem;
-  transition: width 0.5s ease, margin-left 0.5s ease;
 }
 
 main {
