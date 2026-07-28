@@ -1,7 +1,7 @@
 <h1>Lives: <span class="playerLivesCount">{{ playerLives }}</span></h1>
 
 <section>
-  @for (img of images; track img.imgSrc) {
+  @for (img of images(); track $index) {
     <app-card [image]="img"/>
   }
 </section>
