@@ -1,4 +1,4 @@
-import { Component, input, output, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { GalleryImage } from '../../../core/models/image-gallery';
 
 

@@ -2,6 +2,6 @@
 
 <section>
   @for (img of images(); track $index) {
-    <app-card [image]="img"/>
+    <app-card [image]="img" (cardAudioUrl)="playAudio($event)"/>
   }
 </section>

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 
 import { GalleryImage } from '../../core/models/image-gallery';
 import { Card } from '../../shared/components/card/card';
@@ -15,12 +15,21 @@ export class Music {
   protected playerLives: number = 6;
 
   private jamendo = inject(JamendoFetch);
+  private player = new Audio();
 
   protected images = computed(() => {
     const tracks = this.jamendo.tracksResource.value()?.results ?? [];
     const picked = tracks.filter(t => t.album_image).slice(0, 9);
     return this.shuffle([...picked, ...picked].map(t => this.toGalleryImage(t)));
   });
+
+  protected playAudio(url: string | undefined): void {
+    this.player.pause();
+    this.player.currentTime = 0;
+    if (!url) return;
+    this.player.src = url;
+    this.player.play().catch(() => undefined);
+  }
 
   private toGalleryImage(track: JamendoTrack): GalleryImage {
     return {
