@@ -3,3 +3,5 @@ PLAN.md
 PLAN.pdf
 
 frontend/src/app/features/music/api-request.txt
+frontend/src/environments/environment.development.ts
+frontend/src/environments/environment.testing.ts
