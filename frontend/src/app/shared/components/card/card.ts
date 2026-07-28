@@ -1,4 +1,4 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MetImage } from '../../../core/models/image-gallery';
 
 
@@ -6,6 +6,7 @@ import { MetImage } from '../../../core/models/image-gallery';
   selector: 'app-card',
   imports: [],
   templateUrl: './card.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './card.scss',
 })
 export class Card {

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-left-sidebar',
   imports: [RouterModule, CommonModule],
   templateUrl: './left-sidebar.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './left-sidebar.scss',
 })
 export class LeftSidebar {

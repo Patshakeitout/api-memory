@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -6,6 +6,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   templateUrl: './main.html',
   styleUrl: './main.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: {
     '[class.body-trimmed]': '!isLeftSidebarCollapsed()'
    }

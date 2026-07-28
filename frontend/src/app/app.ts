@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener, signal, ChangeDetectionStrategy } from '@angular/core';
 import { LeftSidebar } from './layout/left-sidebar/left-sidebar';
 import { Main } from './layout/main/main';
 
@@ -8,6 +8,7 @@ const NARROW_BREAKPOINT = 768;
   selector: 'app-root',
   imports: [LeftSidebar, Main],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.scss'
 })
 export class App {

@@ -1,4 +1,4 @@
-import { OnInit, Component } from '@angular/core';
+import { OnInit, Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { MetImage } from '../../core/models/image-gallery';
 import { Card } from '../../shared/components/card/card';
@@ -7,6 +7,7 @@ import { Card } from '../../shared/components/card/card';
   selector: 'app-metropolitan',
   imports: [Card],
   templateUrl: './metropolitan.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './metropolitan.scss',
 })
 export class Metropolitan implements OnInit {
