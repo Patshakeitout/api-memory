@@ -1,7 +1,8 @@
-import { OnInit, Component, ChangeDetectionStrategy } from '@angular/core';
+import { OnInit, Component, ChangeDetectionStrategy, inject, effect } from '@angular/core';
 
-import { MetImage } from '../../core/models/image-gallery';
+import { GalleryImage } from '../../core/models/image-gallery';
 import { Card } from '../../shared/components/card/card';
+import { JamendoFetch } from '../../core/services/jamendo-fetch';
 
 @Component({
   selector: 'app-music',
@@ -13,8 +14,10 @@ import { Card } from '../../shared/components/card/card';
 export class Music implements OnInit {
   protected playerLives: number = 6;
 
+  private jamendo = inject(JamendoFetch);
+
   protected baseMetImagePath: string = './images/';
-  protected images: MetImage[] = [
+  protected images: GalleryImage[] = [
     {
       imgSrc: this.baseMetImagePath + 'met-1.jpg',
       title: 'Tommaso di Folco Portinari; Maria Portinari',
@@ -124,6 +127,10 @@ export class Music implements OnInit {
       year: 'ca. 1440'
     }
   ];
+
+  constructor() {
+    effect(() => console.log(this.jamendo.tracksResource.value()));
+  }
 
   ngOnInit(): void {
     this.randomize();

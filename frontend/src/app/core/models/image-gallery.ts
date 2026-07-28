@@ -1,8 +1,9 @@
-export interface MetImage {
-  imgSrc: String;
-  title: String;
-  artist: String;
-  year: String
+export interface GalleryImage {
+  imgSrc: string;
+  title: string;
+  artist: string;
+  year: string;
+  audio?: string
 }
 
 

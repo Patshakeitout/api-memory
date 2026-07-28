@@ -1,5 +1,5 @@
 import { Component, input, signal, ChangeDetectionStrategy } from '@angular/core';
-import { MetImage } from '../../../core/models/image-gallery';
+import { GalleryImage } from '../../../core/models/image-gallery';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { MetImage } from '../../../core/models/image-gallery';
   styleUrl: './card.scss',
 })
 export class Card {
-  image = input.required<MetImage>();
+  image = input.required<GalleryImage>();
   flipState = signal(false);
 
   flipCard = () => {

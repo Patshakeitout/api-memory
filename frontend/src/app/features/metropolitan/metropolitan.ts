@@ -1,6 +1,6 @@
 import { OnInit, Component, ChangeDetectionStrategy } from '@angular/core';
 
-import { MetImage } from '../../core/models/image-gallery';
+import { GalleryImage } from '../../core/models/image-gallery';
 import { Card } from '../../shared/components/card/card';
 
 @Component({
@@ -14,7 +14,7 @@ export class Metropolitan implements OnInit {
   protected playerLives: number = 6;
 
   protected baseMetImagePath: string = './images/';
-  protected images: MetImage[] = [
+  protected images: GalleryImage[] = [
     {
       imgSrc: this.baseMetImagePath + 'met-1.jpg',
       title: 'Tommaso di Folco Portinari; Maria Portinari',
