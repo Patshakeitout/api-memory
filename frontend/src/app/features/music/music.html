@@ -1,7 +1,20 @@
-<h1>Lives: <span class="playerLivesCount">{{ playerLives }}</span></h1>
+<h1>
+  Lives: <span class="playerLivesCount">{{ playerLives }}</span>
+</h1>
+
+<fieldset>
+  <legend>Popularity</legend>
+
+  <input type="radio" id="popularity-off" name="radio-popularity" [checked]="popularityChoice()"/>
+  <label for="popularity-off">popular off</label>
+  <input type="radio" id="popularity-total" name="radio-popularity" />
+  <label for="popularity-total">popular total</label>
+  <input type="radio" id="popularity-month" name="radio-popularity" />
+  <label for="popularity-month">popular month</label>
+</fieldset>
 
 <section>
   @for (img of images(); track $index) {
-    <app-card [image]="img" (cardAudioUrl)="playAudio($event)"/>
+    <app-card [image]="img" (cardAudioUrl)="playAudio($event)" />
   }
 </section>

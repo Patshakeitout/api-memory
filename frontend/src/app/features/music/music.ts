@@ -17,6 +17,10 @@ export class Music {
   private jamendo = inject(JamendoFetch);
   private player = new Audio();
 
+  protected popularityChoice = computed(() => {
+    return this.jamendo.popularity();
+  })
+
   protected images = computed(() => {
     const tracks = this.jamendo.tracksResource.value()?.results ?? [];
     const picked = tracks.filter(t => t.album_image).slice(0, 9);
